@@ -6,11 +6,13 @@ class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
+      padding: EdgeInsets.all(20),
+      physics: BouncingScrollPhysics(),
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 200,
         childAspectRatio: 1.5,
-        crossAxisSpacing: 20,
-        mainAxisSpacing: 20,
+        crossAxisSpacing: 15,
+        mainAxisSpacing: 15,
       ),
       children: DUMMY_CATEGORIES.map((cat) {
         return CategoryItem(cat);

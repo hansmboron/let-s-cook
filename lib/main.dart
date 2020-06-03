@@ -11,8 +11,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Let's cook",
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
+        primaryColor: Colors.orange.shade900,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Home(),

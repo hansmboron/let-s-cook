@@ -8,11 +8,31 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        color: Colors.amber,
-        child: Text(category.title),
+    return Container(
+      padding: EdgeInsets.all(12),
+      child: Text(
+        category.title,
+        style: TextStyle(
+            color: Theme.of(context).primaryColor,
+            fontWeight: FontWeight.bold,
+            fontSize: 17,
+            shadows: [
+              Shadow(
+                color: Colors.black,
+                blurRadius: 1.0,
+              )
+            ]),
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        gradient: LinearGradient(
+          colors: [
+            category.color.withOpacity(0.2),
+            category.color,
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
       ),
     );
   }
