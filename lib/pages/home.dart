@@ -10,9 +10,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Let's cook"),
-        ),
-        body: CategoriesScreen());
+      appBar: AppBar(
+        title: Text("Let's cook"),
+      ),
+      body: CategoriesScreen(),
+    );
   }
 }
