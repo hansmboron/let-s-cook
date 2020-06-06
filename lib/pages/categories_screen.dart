@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:lets_cook/components/category_item.dart';
 import 'package:lets_cook/data/dummy_data.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class Categories extends StatefulWidget {
+  @override
+  _CategoriesState createState() => _CategoriesState();
+}
+
+class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return GridView(
