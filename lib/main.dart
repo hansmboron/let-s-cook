@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:lets_cook/pages/categories_meals.dart';
 import 'package:lets_cook/pages/home.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lets_cook/pages/meal_details.dart';
 import 'package:lets_cook/utils/app_routes.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(LetsCook());
 
-class MyApp extends StatelessWidget {
-  var routes = AppRoutes();
+class LetsCook extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,7 +25,9 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.HOME: (ctx) => Home(),
         AppRoutes.CATEGORIES_MEALS: (ctx) => CategoriesMeals(),
+        AppRoutes.MEALS_DETAILS: (ctx) => MealDetail(),
       },
+      onUnknownRoute: (settings) => MaterialPageRoute(builder: (_) => Home()),
     );
   }
 }
