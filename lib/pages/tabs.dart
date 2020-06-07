@@ -1,6 +1,8 @@
+import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:lets_cook/components/main_drawer.dart';
 import 'package:lets_cook/pages/favorites.dart';
+import 'package:lets_cook/utils/app_routes.dart';
 
 import 'categories_screen.dart';
 
@@ -15,6 +17,12 @@ class Tabs extends StatelessWidget {
           elevation: 0,
           title: Text("Let's cook"),
           bottom: TabBar(
+            indicator: BubbleTabIndicator(
+              indicatorHeight: 38.0,
+              indicatorRadius: 12,
+              indicatorColor: Theme.of(context).accentColor.withAlpha(150),
+              tabBarIndicatorSize: TabBarIndicatorSize.tab,
+            ),
             tabs: [
               Tab(
                 icon: Icon(Icons.fastfood),
@@ -29,12 +37,10 @@ class Tabs extends StatelessWidget {
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.settings),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRoutes.SETTING);
+              },
             ),
-            IconButton(
-              icon: Icon(Icons.exit_to_app),
-              onPressed: () {},
-            )
           ],
         ),
         drawer: MainDrawer(),

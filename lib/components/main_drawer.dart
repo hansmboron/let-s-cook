@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lets_cook/utils/app_routes.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -34,13 +35,13 @@ class MainDrawer extends StatelessWidget {
             height: 120,
             width: double.infinity,
             padding: const EdgeInsets.all(20),
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).primaryColor,
             child: Text(
-              "Let's cook",
-              style: TextStyle(
+              "😋 Let's cook",
+              style: GoogleFonts.hammersmithOne(
                 fontWeight: FontWeight.w900,
-                fontSize: 30,
-                color: Theme.of(context).primaryColor,
+                fontSize: 38,
+                color: Theme.of(context).accentColor,
               ),
             ),
           ),

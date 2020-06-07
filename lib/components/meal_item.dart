@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lets_cook/models/meal.dart';
 import 'package:lets_cook/utils/app_routes.dart';
@@ -37,8 +38,8 @@ class MealItem extends StatelessWidget {
                     topLeft: Radius.circular(10.0),
                     topRight: Radius.circular(10.0),
                   ),
-                  child: Image.network(
-                    meal.imageUrl,
+                  child: CachedNetworkImage(
+                    imageUrl: meal.imageUrl,
                     height: 250,
                     width: double.infinity,
                     fit: BoxFit.cover,
