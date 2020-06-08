@@ -1,7 +1,13 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lets_cook/models/meal.dart';
 
 class MealDetail extends StatelessWidget {
+  final Function(Meal) onToggleFavorite;
+  final bool Function(Meal) isFavorite;
+
+  const MealDetail(this.onToggleFavorite, this.isFavorite);
+
   Widget _createSectionTitle(BuildContext context, String title) {
     return Container(
       width: double.infinity,
@@ -42,13 +48,14 @@ class MealDetail extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: <Widget>[
             Container(
               height: 300,
               width: double.infinity,
-              child: Image.network(
-                meal.imageUrl,
+              child: CachedNetworkImage(
+                imageUrl: meal.imageUrl,
                 fit: BoxFit.cover,
               ),
             ),
@@ -95,11 +102,11 @@ class MealDetail extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).pop(meal.title);
+          onToggleFavorite(meal);
         },
         // backgroundColor: Colors.green.withAlpha(100),
         child: Icon(
-          Icons.star,
+          isFavorite(meal) ? Icons.star : Icons.star_border,
           color: Colors.white,
         ),
       ),

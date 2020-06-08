@@ -20,6 +20,8 @@ class LetsCook extends StatefulWidget {
 class _LetsCookState extends State<LetsCook> {
   Settings settings = Settings();
   List<Meal> _avaliableMeals = DUMMY_MEALS;
+  List<Meal> _favoriteMeals = [];
+
   void _filterMeals(Settings settings) {
     setState(() {
       _avaliableMeals = DUMMY_MEALS.where((meal) {
@@ -37,6 +39,18 @@ class _LetsCookState extends State<LetsCook> {
     });
   }
 
+  void _toggleMeal(Meal meal) {
+    setState(() {
+      _favoriteMeals.contains(meal)
+          ? _favoriteMeals.remove(meal)
+          : _favoriteMeals.add(meal);
+    });
+  }
+
+  bool _isFavorite(Meal meal) {
+    return _favoriteMeals.contains(meal);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -52,9 +66,9 @@ class _LetsCookState extends State<LetsCook> {
         ),
       ),
       routes: {
-        AppRoutes.HOME: (ctx) => Tabs(),
+        AppRoutes.HOME: (ctx) => Tabs(_favoriteMeals),
         AppRoutes.CATEGORIES_MEALS: (ctx) => CategoriesMeals(_avaliableMeals),
-        AppRoutes.MEALS_DETAILS: (ctx) => MealDetail(),
+        AppRoutes.MEALS_DETAILS: (ctx) => MealDetail(_toggleMeal, _isFavorite),
         AppRoutes.SETTING: (ctx) => SettingsPage(_filterMeals, settings),
       },
       onUnknownRoute: (settings) =>

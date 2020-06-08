@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lets_cook/utils/app_routes.dart';
@@ -38,8 +40,8 @@ class MainDrawer extends StatelessWidget {
             color: Theme.of(context).primaryColor,
             child: Text(
               "😋 Let's cook",
-              style: GoogleFonts.hammersmithOne(
-                fontWeight: FontWeight.w900,
+              style: GoogleFonts.gorditas(
+                fontWeight: FontWeight.bold,
                 fontSize: 38,
                 color: Theme.of(context).accentColor,
               ),
@@ -64,13 +66,25 @@ class MainDrawer extends StatelessWidget {
           _createItem(
             icon: Icons.info,
             label: 'Sobre',
-            onTap: () {},
+            onTap: () {
+              showAboutDialog(
+                context: context,
+                applicationVersion: '1.0.0',
+                applicationLegalese:
+                    "O aplicativo Let's cook foi baseado no curso de Flutter da cod3r.com.br",
+                applicationName: "Let's cook",
+              );
+            },
           ),
           Divider(height: 0),
           _createItem(
             icon: Icons.exit_to_app,
             label: 'Sair',
-            onTap: () {},
+            onTap: () {
+              try {
+                exit(0);
+              } catch (e) {}
+            },
           ),
           Spacer(),
           Container(
