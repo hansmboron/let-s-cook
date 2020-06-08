@@ -1,16 +1,11 @@
-# lets_cook
+# Let's cook
 
-A new Flutter project.
+[![Platform](https://img.shields.io/badge/Platform-Android-green.svg)](https://github.com/hansmboron/let-s-cook)
+[![LICENCE](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/hansmboron/let-s-cook/blob/master/LICENSE)
+[![Flutter](https://img.shields.io/badge/Flutter-1.17.1-blue.svg)](https://flutter.dev)
 
-## Getting Started
+Aplicativo para com receitas organizadas por categoria com recursos de filtros personalizados e favoritos.
+Porém ainda sem persistência de dados.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Demonstração
+<img src='demo.gif' alt='gif animado mostrando funcionalidades do app' />
